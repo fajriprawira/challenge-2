@@ -7,16 +7,17 @@ import Toastify from "toastify-js";
 export default function Home({ url }) {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [search, setSearch] = useState('');
-  const [sortColumn, setSortColumn] = useState('id'); 
-  const [sortOrder, setSortOrder] = useState('ASC');
-  const [filterName, setFilterName] = useState('');
+  const [search, setSearch] = useState("");
+  const [sortColumn, setSortColumn] = useState("id");
+  const [sortOrder, setSortOrder] = useState("ASC");
+  const [filterName, setFilterName] = useState("");
 
   async function fetchArticles() {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `${url}/apis/pub/news-portal/articles?q=${search}&name=${filterName}&limit=8&page=1&sort=${sortOrder}&column=${sortColumn}`);
+        `${url}/apis/pub/news-portal/articles?q=${search}&name=${filterName}&limit=8&page=1&sort=${sortOrder}&column=${sortColumn}`
+      );
       setArticles(data.data.query);
     } catch (error) {
       console.log(error);
@@ -57,12 +58,18 @@ export default function Home({ url }) {
           />
         </form>
 
-          <main className="grid grid-cols-3 gap-5 px-10 my-8 bg-white">
-            {articles.map(article => {
-              return <Card key={article.id} article={article} />
-            })}
-          </main>
-        
+        <main className="grid grid-cols-3 gap-5 px-10 my-8 bg-white">
+          {articles.map((article) => {
+            return (
+              <Card
+                key={article.id}
+                article={article}
+                url={url}
+                fetchArticles={fetchArticles}
+              />
+            );
+          })}
+        </main>
       </div>
     </>
   );
