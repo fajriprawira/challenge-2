@@ -40,20 +40,20 @@ export default function Details({ url }) {
   }, []);
 
   return (
-        <>
-          <div className="p-20 bg-gray-100 shadow-2xl flex flex-row">
-            <figure className="flex flex-1">
-              <img
-                src={articles.imgUrl}
-                alt="Article image"
-                className="w-1/2 ml-20 rounded-xl"
-              />
-            </figure>
-            <div className="flex flex-1 flex-col">
-              <b className="mb-5 text-left">{articles.title}</b>
-              <p className="text-left">{articles.content}</p>
-            </div>
-          </div>
-        </>
+    <>
+      <div className="p-20 bg-gray-100 shadow-2xl flex flex-row">
+        <figure className="flex flex-1">
+          <img
+            src={articles.imgUrl}
+            alt="Article image"
+            className="w-1/2 ml-20 rounded-xl"
+          />
+        </figure>
+        <div className="flex flex-1 flex-col">
+          <b className="mb-5 text-left">{articles.title}</b>
+          <p className="text-left">{articles.content}</p>
+        </div>
+      </div>
+    </>
   );
 }
