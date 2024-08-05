@@ -31,7 +31,7 @@ export default function Card({ article, url, fetchArticles }) {
       fetchArticles();
     } catch (error) {
       Toastify({
-        text: error.response?.data?.error || "Error deleting article",
+        text: error.response.data.error || "Error deleting article",
         duration: 2000,
         newWindow: true,
         close: true,
