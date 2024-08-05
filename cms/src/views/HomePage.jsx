@@ -20,7 +20,7 @@ export default function Home({ url }) {
       );
       setArticles(data.data.query);
     } catch (error) {
-      console.log(error);
+      
       Toastify({
         text: error.response.data.error,
         duration: 2000,
